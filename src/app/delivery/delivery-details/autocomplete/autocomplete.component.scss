@@ -1,0 +1,25 @@
+:host {
+    display: block;
+}
+
+.option {
+    cursor: pointer;
+    background-color:white;
+
+    &.selected {
+        background-color: #797979;
+        color: white;
+    }
+    
+    &:hover {
+        background-color: #797979;
+        color: white;
+    }
+}
+
+input {
+    
+    &:read-only{
+        cursor: pointer;
+    }
+}

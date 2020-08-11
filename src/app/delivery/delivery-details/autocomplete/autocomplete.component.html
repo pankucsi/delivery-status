@@ -1,0 +1,19 @@
+<label class="form-label">{{title}}</label>
+<input class="form-control"
+       placeholder="Type to search..."
+       [value]="value"
+       (click)="isOpened = true"
+       (input)="handleValueChange($event.target.value)"
+       [readOnly]="disableAutocomplete">
+<div *ngIf="isOpened"
+     style="z-index: 1000;"
+     class="position-relative row">
+       <div class="position-absolute col-12">
+              <div class="border option pl-2 text-truncate"
+                   [ngClass]="{selected: option.id === selectedAddress}"
+                   *ngFor="let option of options"
+                   (click)="select(option.id)">
+                     {{option.name}}
+              </div>
+       </div>
+</div>

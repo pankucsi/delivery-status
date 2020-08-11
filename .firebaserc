@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "himg-homework": {
+      "hosting": {
+        "HIMG": [
+          "himg-homework"
+        ]
+      }
+    }
+  }
+}

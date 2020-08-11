@@ -1,0 +1,26 @@
+<div class="row  m-1 p-2 font-weight-bold d-none d-lg-flex">
+    <div class="col-6 col-lg-4">
+        <div class="row">
+            <div class="col-12 col-lg-6 ">
+                ID
+            </div>
+            <div class="col-12 col-lg-6">
+                Order Date
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-4 ">
+        Shipping Address
+    </div>
+
+    <div class="col-12 col-lg-2">
+        Name
+    </div>
+    <div class="col-6 col-lg-2">
+        Status
+    </div>
+</div>
+
+<app-delivery-card class="row border m-1 p-2 rounded" *ngFor="let delivery of deliveries$ | async" [delivery]="delivery"
+    [routerLink]="[delivery.id]">
+</app-delivery-card>

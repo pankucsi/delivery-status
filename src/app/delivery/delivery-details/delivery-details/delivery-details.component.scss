@@ -1,0 +1,14 @@
+li {
+    padding-left: 10px;
+    &::marker {
+        content: '➖';  
+    }
+
+    &.active {
+        color: green;
+
+        &::marker {
+            content: '✔';  
+        }
+    }
+}

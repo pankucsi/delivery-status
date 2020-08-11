@@ -1,0 +1,38 @@
+<div class="row"
+     *ngIf="delivery$| async as delivery">
+    <h2 class="col-12 text-center">{{delivery.id}} - {{delivery.name}}</h2>
+
+    <ul class="text-center col-12 col-lg-4 ">
+        <li *ngFor="let status of statuses"
+            [ngClass]="{active: isActive(status, delivery.status)}">
+            {{status.title}}
+        </li>
+    </ul>
+
+    <app-autocomplete title="Select vehicle type 🚲 or 🚙"
+                      class="col-12 col-lg-4 "
+                      [disableAutocomplete]="true"
+                      [value]="vehicle$ | async"
+                      [selectedAddress]="vehicle$ | async"
+                      [options]="[{name: 'Bike', id: 'Bike'},{name: 'Car', id: 'Car'}]"
+                      (placeSelect)="handleVehicleChange($event)">
+    </app-autocomplete>
+
+    <app-autocomplete title="Select new destination ✈"
+                      class="col-12 col-lg-4 "
+                      [value]="currentPlace.value"
+                      [selectedAddress]="selectedAddress$ | async"
+                      [options]="places$ | async"
+                      (valueChange)="handleEndLocationInputChange($event)"
+                      (placeSelect)="handleEndLocationChange(delivery.id, $event)">
+    </app-autocomplete>
+</div>
+
+<div class="row mt-3">
+
+    <app-delivery-map class="col-12"
+                      [locations]="locations$ | async"
+                      [currentLocation]="courierPosition$ | async"
+                      [vehicleIconUrl]="vehicleIcon$ | async">
+    </app-delivery-map>
+</div>
